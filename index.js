@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 const queries = require('./queries.js');
 const knex = require('knex');
-const config = require("./knexfile");
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -14,7 +13,7 @@ app.get('/', (req, res) => {
     queries.dbQueryGetAll().then(response => res.send(response))
 })
 
-app.get('/:id', function(req, res) {
+app.get('/:id', (req, res) => {
     queries.dbQueryGetById(req.params.id).then(movies => res.send(movies))
 })
 

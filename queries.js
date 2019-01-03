@@ -3,8 +3,8 @@ const db = require('./database-connection');
         dbQueryGetAll(){
             return db.select().from('movies')
         },
-        dbQueryGetById(){
-            return db('movies').where('id', id)
+        dbQueryGetById(id){
+            return db('movies').where({id: id}).first()
         },
         dbQueryCreateMovie(newMovie){
             return db('movies').insert(newMovie).returning('*')
