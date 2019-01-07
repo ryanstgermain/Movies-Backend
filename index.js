@@ -22,7 +22,7 @@ app.post('/', (req, res) => {
 })
 
 app.delete('/:id', (req, res) => {
-    queries.deleteMovie(req.params.id).then(res.sendStatus(204))
+    queries.deleteMovie(req.params.id).then(res.status(204).send())
 })
 
 app.put('/:id', (req, res) => {
